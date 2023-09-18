@@ -11,10 +11,9 @@ public class TypeExam {
         float f = 10.0f / 3.0f;
         double d = 10.0 / 3.0;
 
-
         System.out.println("float : " + f);
         System.out.println("double : " + d);
-        
+
     }
-    
+
 }

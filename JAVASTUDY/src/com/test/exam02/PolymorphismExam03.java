@@ -16,44 +16,48 @@ public class PolymorphismExam03 { // 업캐스팅
 
         f = new choiFamily();
         f.hello();
-        
+
     }
 }
 
 class Family {
-    void hello(){
+    void hello() {
         // System.out.println("가족들과 인사합시다.");
     }
 }
 
-class KimFamily extends Family{
+class KimFamily extends Family {
     @Override
-    void hello(){
+    void hello() {
         System.out.println("김선생님 안녕하세요?");
     }
-    void dinner(){
+
+    void dinner() {
         System.out.println("같이 식사나 한번 하시죠");
     }
-    void drink(){
+
+    void drink() {
         System.out.println("술 한잔 하시죠");
     }
 }
 
-class ParkFamily extends Family{
+class ParkFamily extends Family {
     @Override
-    void hello(){
+    void hello() {
         System.out.println("박선생님 안녕하세요?");
     }
-    void dinner(){
+
+    void dinner() {
         System.out.println("낚시 한번 하시죠");
     }
 }
 
-class choiFamily extends Family{
-    void hello(){
+class choiFamily extends Family {
+    void hello() {
         System.out.println("최선생님 안녕하세요?");
     }
-    void dinner(){
+
+    void dinner() {
         System.out.println("가족 모임 한번 하시죠");
     }
 }

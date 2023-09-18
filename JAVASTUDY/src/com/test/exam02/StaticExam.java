@@ -16,7 +16,7 @@ public class StaticExam {
 
         number1.print2();
 
-        StaticExam staticExam = new StaticExam(); //인스턴스화를 시켜줌 #1. 방법
+        StaticExam staticExam = new StaticExam(); // 인스턴스화를 시켜줌 #1. 방법
 
         staticExam.sayHello();
         // sayHello(); <== 아래 주석처리한 코드가 안되는 이유는
@@ -26,29 +26,28 @@ public class StaticExam {
     }
 
     // public void sayHello(){
-    //     System.out.println("안녕");
+    // System.out.println("안녕");
     // }
 
-    public void sayHello(){ // 이 곳에 static 메서드를 선언 #2. 방법
+    public void sayHello() { // 이 곳에 static 메서드를 선언 #2. 방법
         System.out.println("안녕");
     }
-}   
+}
 
 class Number {
-    static int a = 0; 
+    static int a = 0;
     int b = 0;
 
-    public static void print1(){
+    public static void print1() {
         System.out.println("static method test !!!");
     }
 
-    public void print2(){
+    public void print2() {
         System.out.println("instance method test !!!");
         hello();
     }
 
-    public void hello(){
+    public void hello() {
         System.out.println("Hello~~");
     }
 }
-

@@ -1,6 +1,8 @@
 package com.test.member;
 
 public class Member {
+
+    private int id;
     private String name; // 전역변수
     private String gender;
     private int age;
@@ -18,7 +20,8 @@ public class Member {
         System.out.println("인자가 하나인 생성자를 통해 객체가 생성되었습니다.");
     }
 
-    public Member(String name, String gender, int age) { // 지역변수이면서 파라미터 변수, 생성자 정의
+    public Member(int id, String name, String gender, int age) { // 지역변수이면서 파라미터 변수, 생성자 정의
+        this.id = id;
         this.name = name;
         this.gender = gender;
         this.age = age;
@@ -27,6 +30,11 @@ public class Member {
     } // 인자가 3개인 생성자 정의
 
     // 방법 2.
+
+    public int getid() {
+        return this.id;
+    }
+
     public String getName() {
         return this.name;
     }

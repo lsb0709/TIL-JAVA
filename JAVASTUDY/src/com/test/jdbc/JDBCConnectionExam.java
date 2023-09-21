@@ -8,17 +8,21 @@ import com.test.member.Member;
 public class JDBCConnectionExam {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        String uri = "jdbc:oracle:thin:@localhost:1521:xe";
+        // String uri = "jdbc:oracle:thin:@localhost:1521:xe";
+        String uri = "jdbc:mariadb://localhost:3306/springdev";
         String userid = "springdev";
         String userpw = "1234";
         String query = "select id, name, gender, age from tbl_test order by id asc";
-        String query1 = "insert into tbl_test(id, name, gender, age) values (tbl_test_seq.nextval,\'김길동\', \'남성\', '23')";
+        // String query1 = "insert into tbl_test(id, name, gender, age) values
+        // (tbl_test_seq.nextval,\'김길동\', \'남성\', 23)";
+        String query1 = "insert into tbl_test(name, gender, age) values (\'김길동\', \'남성\', 23)";
 
         Connection con; // 파이프라인
         Statement stmt;
         ResultSet rs;
 
-        Class.forName("oracle.jdbc.driver.OracleDriver"); // JDBC 드라이버를 로딩
+        // Class.forName("oracle.jdbc.driver.OracleDriver"); // JDBC 드라이버를 로딩
+        Class.forName("org.mariadb.jdbc.Driver");
         con = DriverManager.getConnection(uri, userid, userpw); // uri, userid, userpw 값으로 DB 연결 시도
         stmt = con.createStatement(); // SQL이 실행 될 수 있는 환경 생성
         stmt.executeUpdate(query1); // insert, update, delete 같은 DML 명령문을 실행

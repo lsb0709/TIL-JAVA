@@ -3,6 +3,7 @@
     "lib/**/*.jar",
     "c:\\JDK\\extlb\\ojdbc11.jar",
     "c:\\JDK\\extlb\\HikariCP-5.0.1.jar",
-    "c:\\JDK\\extlb\\slf4j-api-2.0.6.jar"
+    "c:\\JDK\\extlb\\slf4j-api-2.0.6.jar",
+    "c:\\JDK\\extlb\\mariadb-java-client-2.7.3.jar"
   ]
 }

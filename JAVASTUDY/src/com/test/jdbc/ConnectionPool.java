@@ -37,8 +37,6 @@ public class ConnectionPool {
             stmt = con.createStatement();
             rs = stmt.executeQuery(query);
 
-            list = new ArrayList<>();
-
             while (rs.next()) {
                 list.add(new Member.Builder()
                         .id(rs.getInt("id"))

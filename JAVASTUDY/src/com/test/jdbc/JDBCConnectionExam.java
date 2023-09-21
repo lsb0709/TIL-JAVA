@@ -42,13 +42,19 @@ public class JDBCConnectionExam {
                     .build());
         }
 
-        for (Member member : list) {
-            System.out.println(
-                    "번호 : " + member.getid() + "\t" +
-                            "이름 : " + member.getName() + "\t" +
-                            "성별 : " + member.getGender() + "\t" +
-                            "나이 : " + member.getAge());
-        }
+        // for (Member member : list) {
+        // System.out.println(
+        // "번호 : " + member.getid() + "\t" +
+        // "이름 : " + member.getName() + "\t" +
+        // "성별 : " + member.getGender() + "\t" +
+        // "나이 : " + member.getAge());
+        // }
+
+        list.stream().filter(member -> member != null).forEach(l -> System.out.println(
+                "번호 : " + l.getid() + "\t" +
+                        "이름 : " + l.getName() + "\t" +
+                        "성별 : " + l.getGender() + "\t" +
+                        "나이 : " + l.getAge()));
 
         if (rs != null)
             rs.close();

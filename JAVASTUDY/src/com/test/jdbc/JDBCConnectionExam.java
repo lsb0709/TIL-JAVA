@@ -11,7 +11,8 @@ public class JDBCConnectionExam {
         String uri = "jdbc:oracle:thin:@localhost:1521:xe";
         String userid = "springdev";
         String userpw = "1234";
-        String query = "select id, name, gender, age from tbl_test order by id desc";
+        String query = "select id, name, gender, age from tbl_test order by id asc";
+        String query1 = "insert into tbl_test(id, name, gender, age) values (tbl_test_seq.nextval,\'김길동\', \'남성\', '23')";
 
         Connection con; // 파이프라인
         Statement stmt;
@@ -20,6 +21,7 @@ public class JDBCConnectionExam {
         Class.forName("oracle.jdbc.driver.OracleDriver"); // JDBC 드라이버를 로딩
         con = DriverManager.getConnection(uri, userid, userpw); // uri, userid, userpw 값으로 DB 연결 시도
         stmt = con.createStatement(); // SQL이 실행 될 수 있는 환경 생성
+        stmt.executeUpdate(query1); // insert, update, delete 같은 DML 명령문을 실행
         rs = stmt.executeQuery(query); // SQL문을 실행해서 그 결과를 ResultSet이란 Collection 객체에 담는다.
 
         List<Member> list = new ArrayList<>();
@@ -31,7 +33,7 @@ public class JDBCConnectionExam {
             // rs.getString("gender"),
             // rs.getInt("age")));
 
-            // 빌드 패턴을 이용해서 출력
+            // 빌드 패턴을 이용해서 Member 클래스에 값을 입력
             list.add(new Member.Builder()
                     .id(rs.getInt("id"))
                     .name(rs.getString("name"))

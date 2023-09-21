@@ -70,7 +70,7 @@ public class Member {
 
         public Builder id(int id) { // 매개변수
             this.id = id;
-            return this;
+            return this; // 메소드 종료 후 내부 클래스인 Builder 클래스가 종료 되는 걸 방지한다.
         }
 
         public Builder name(String name) { // 매개변수

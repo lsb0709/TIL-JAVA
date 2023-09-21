@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.test.member.Member;
 
-public class JDBCConnectionExam {
+public class JDBCConnection_MariaDBExam {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
         // String uri = "jdbc:oracle:thin:@localhost:1521:xe";

@@ -59,4 +59,45 @@ public class Member {
         this.age = age;
     }
 
+    // Builder 패턴
+
+    public static class Builder {
+
+        private int id; // 멤버변수
+        private String name;
+        private String gender;
+        private int age;
+
+        public Builder id(int id) { // 매개변수
+            this.id = id;
+            return this;
+        }
+
+        public Builder name(String name) { // 매개변수
+            this.name = name;
+            return this;
+        }
+
+        public Builder gender(String gender) { // 매개변수
+            this.gender = gender;
+            return this;
+        }
+
+        public Builder age(int age) { // 매개변수
+            this.age = age;
+            return this;
+        }
+
+        public Member build() {
+
+            if (id == 0 || name == null || gender == null || age == 0) {
+
+                throw new IllegalStateException("멤버 클래스에 값이 없습니다.");
+            }
+
+            return new Member(id, name, gender, age);
+
+        }
+    }
+
 }

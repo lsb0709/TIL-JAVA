@@ -31,13 +31,13 @@ public class ClassExam01 {
         System.out.println("Sum 클래스의 멤버변수 b = " + sum.getSumB());
         // System.out.println("4와 5의 합은 " + sum.sum(4, 5) + "입니다.");
 
-        Member member = new Member("김철수", "남성", 34);
+        Member member = new Member(1, "김철수", "남성", 34);
         // member.setName("김철수");
         // member.setGender("남성");
         // member.setAge(34);
 
         System.out.println(("이름 : " + member.getName() + "\t"
-                + "성별 :" + member.getGender() + "\t"
+                + "성별 : " + member.getGender() + "\t"
                 + "나이 : " + member.getAge()));
 
         new Member(); // 익명 객체 생성

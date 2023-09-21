@@ -13,7 +13,7 @@ public class JDBCConnectionExam {
         String userpw = "1234";
         String query = "select id, name, gender, age from tbl_test order by id desc";
 
-        Connection con;
+        Connection con; // 파이프라인
         Statement stmt;
         ResultSet rs;
 
@@ -26,10 +26,18 @@ public class JDBCConnectionExam {
 
         // rs.next() --> DB에서 읽어와서 ResultSet()에 저장된 값들을 한줄씩 읽고 더 이상 읽을 줄이 없으면 false를 리턴
         while (rs.next()) {
-            list.add(new Member(rs.getInt("id"),
-                    rs.getString("name"),
-                    rs.getString("gender"),
-                    rs.getInt("age")));
+            // list.add(new Member(rs.getInt("id"),
+            // rs.getString("name"),
+            // rs.getString("gender"),
+            // rs.getInt("age")));
+
+            // 빌드 패턴을 이용해서 출력
+            list.add(new Member.Builder()
+                    .id(rs.getInt("id"))
+                    .name(rs.getString("name"))
+                    .gender(rs.getString("gender"))
+                    .age(rs.getInt("age"))
+                    .build());
         }
 
         for (Member member : list) {
@@ -39,5 +47,12 @@ public class JDBCConnectionExam {
                             "성별 : " + member.getGender() + "\t" +
                             "나이 : " + member.getAge());
         }
+
+        if (rs != null)
+            rs.close();
+        if (stmt != null)
+            stmt.close();
+        if (con != null)
+            con.close();
     }
 }

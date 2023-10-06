@@ -16,7 +16,8 @@ public class HttpClientTest {
     public static void main(String[] args) throws Exception {
 
         // URL 주소
-        String address = "http://127.0.0.1/jsp/jdbctest_oracle.jsp";
+        String address_get = "http://127.0.0.1/jsp/jdbctest_oracle.jsp";
+        String address_post = "http://127.0.0.1/servelt/jdbctest_registry";
 
         // URL Query --> 파라미터
         Map<String, String> params = new HashMap<>();
@@ -28,10 +29,10 @@ public class HttpClientTest {
         String[] headers = { "content-type", "application/x-www-form-urlencoded" };
 
         // POST 방식으로 서버에 값을 전달하여 Request 처리를 하고 Response로 페이지 Body를 가져 옴
-        HttpClientRun.post(address, params, headers);
+        HttpClientRun.post(address_post, params, headers);
 
         // GET 방식으로 서버에 페이지 요청을 해서 Response로 페이지 Body를 가져 옴
-        // HttpClientRun.get(address);
+        HttpClientRun.get(address_get);
     }
 }
 
@@ -54,6 +55,7 @@ class HttpClientRun {
 
     // POST 처리
     public static void post(String address, Map<String, String> params, String[] headers) throws Exception {
+
         BodyPublisher body = BodyPublishers.ofString(getFormDataAsString(params));
         HttpClient client = HttpClient.newBuilder().version(Version.HTTP_1_1).build();
 
@@ -61,7 +63,7 @@ class HttpClientRun {
                 HttpRequest.newBuilder(new URI(address)) // 빌드 패턴으로 설정값 받음
                         .POST(body).headers(headers).build(), // POST 방식 요청
                 HttpResponse.BodyHandlers.ofString()); // Response
-        System.out.println(response);
+        System.out.println("HTTP 본문 : " + response);
     }
 
     public static String getFormDataAsString(Map<String, String> formData) {

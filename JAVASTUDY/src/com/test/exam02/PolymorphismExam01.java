@@ -7,7 +7,7 @@ class Animal {
 }
 
 class Human extends Animal {
-    @Override
+    @Override // 부모클래스의 기능을 덮어썼다(재정의했다) - 부모클래스가 가지고 있지 않는 기능을 추가!!
     public void move() {
         System.out.println("사람이 두 발로 걷습니다.");
     }

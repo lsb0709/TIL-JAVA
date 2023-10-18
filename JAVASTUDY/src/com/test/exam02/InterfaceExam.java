@@ -8,7 +8,7 @@ interface InterfaceTest {
 
 class InterfaceChild implements InterfaceTest {
 
-    @Override
+    @Override // 부모가 가지고 있는 메서드를 재정의 했다는 의미
     public void print1() {
         System.out.println("#1 출력");
     }

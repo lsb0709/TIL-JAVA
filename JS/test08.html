@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let files = [
+            "이미지파일/무료일러스트_(1).png",
+            "이미지파일/무료일러스트_(4).png",
+            "이미지파일/무료일러스트_(5).png",
+            "이미지파일/무료일러스트_(8).png",
+    ];
+
+    let imgs = new Array();
+    for(let i=0; i<files.length; i++){
+        imgs[i] = new Image();
+        imgs[i].src = files[i];
+    }
+
+    let next = 1;
+
+    const change = (img) => {
+        img.src = imgs[next].src;
+        next++;
+        next %= imgs.length;
+    }
+</script>
+
+<body>
+    <img style="border: 20px ridge wheat;" src="/JS/이미지파일/무료일러스트_(4).png" 
+        alt="이미지" width="800" height="auto" onclick="change(this)">
+    
+</body>
+</html>

@@ -10,15 +10,15 @@
     <div class="box" style="width: 100px; height: 100px; background: red;"></div>
 
     <script>
-        var box = document.querySelector('box');
-        var toggleBtn = document.querySelector('toggle');
+        var box = document.querySelector('.box');
+        var toggleBtn = document.querySelector('.toggle');
 
         var toggle = (function () {
             var isShow = false;
 
             // 1. 클로저를 반환
             return function () {
-                box.style.disply = isShow ? 'block' : 'none';
+                box.style.display = isShow ? 'block' : 'none';
                 // 3.상태 변경
                 isShow =!isShow
             };
